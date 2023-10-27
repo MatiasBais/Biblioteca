@@ -1,0 +1,1 @@
+data source= localhost; database=bibliotecabd;user id = root
