@@ -79,5 +79,10 @@ namespace WindowsFormsApplication1
                 asd();
             }
         }
+
+        private void rendiciones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

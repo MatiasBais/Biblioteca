@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        MySqlConnection cnn = new MySqlConnection("Database=bibliotecabd;Data source=localhost;User ID=root");
+        MySqlConnection cnn = new MySqlConnection("Database=bibliotecabd;Data source=localhost;User ID=root;password=root");
 
         private void Usuario_Click(object sender, EventArgs e)
         {
@@ -48,7 +48,7 @@ namespace WindowsFormsApplication1
             comboBox1.SelectedIndex = 0;
             try
             {
-                string conexion = "Database=bibliotecabd;Data source=localhost;User ID=root";
+                string conexion = "Database=bibliotecabd;Data source=localhost;User ID=root;password=root";
                 MySqlConnection cnn = new MySqlConnection(conexion);
                 string consulta = "select * from usuarios";
                 MySqlDataAdapter data = new MySqlDataAdapter(consulta, cnn);
@@ -74,7 +74,7 @@ namespace WindowsFormsApplication1
         }
         private void actualizar()
         {
-            string conexion = "Database=bibliotecabd;Data source=localhost;User ID=root";
+            string conexion = "Database=bibliotecabd;Data source=localhost;User ID=root;password=root";
             MySqlConnection cnn = new MySqlConnection(conexion);
             string consulta = "select * from usuarios";
             MySqlDataAdapter data = new MySqlDataAdapter(consulta, cnn);

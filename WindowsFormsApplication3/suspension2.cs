@@ -22,7 +22,7 @@ namespace WindowsFormsApplication1
             int nrosocio = ABM_socio.ssnrosocio;
             string fecha = monthCalendar1.SelectionRange.Start.Year + "/" + monthCalendar1.SelectionRange.Start.Month + "/" + monthCalendar1.SelectionRange.Start.Day;
             string q = "Update socio set Suspendido='Si', FechaFinSusp='" + fecha + "' where NroSocio=" + nrosocio;
-            MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
             cnn.Open();
             MySqlCommand cmd = new MySqlCommand(q, cnn);
             cmd.ExecuteNonQuery();
@@ -33,6 +33,11 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void suspension2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

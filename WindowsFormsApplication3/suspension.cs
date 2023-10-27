@@ -28,7 +28,7 @@ namespace WindowsFormsApplication1
             int nrosocio = Prestamos.gnrosocio;
             string fecha = monthCalendar1.SelectionRange.Start.Year + "/" + monthCalendar1.SelectionRange.Start.Month + "/" + monthCalendar1.SelectionRange.Start.Day;
             string q = "Update socio set Suspendido='Si', FechaFinSusp='" + fecha + "' where NroSocio=" + nrosocio;
-            MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
             cnn.Open();
             MySqlCommand cmd = new MySqlCommand(q, cnn);
             cmd.ExecuteNonQuery();

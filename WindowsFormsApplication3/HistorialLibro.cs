@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
         {
             
             
-            MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
             string query = "select NroInventario from libro order by NroInventario limit 1";
             MySqlCommand cmd20 = new MySqlCommand(query, cnn);
             cnn.Open();
@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
 
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
-            MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select autor1, titulo, clasificacion from libro where Nroinventario=" + domainUpDown1.Text, cnn2);
             cnn2.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -108,7 +108,7 @@ namespace WindowsFormsApplication1
             {
                 dataGridView1.Rows.Clear();
                 dataGridView1.Refresh();
-                MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("select autor1, titulo, clasificacion from libro where Nroinventario=" + domainUpDown1.Text, cnn2);
                 cnn2.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();

@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        MySqlConnection l = new MySqlConnection("Server=127.0.0.1;database=bibliotecabd; uid=root;pwd=;;");
+        MySqlConnection l = new MySqlConnection("Server=127.0.0.1;database=bibliotecabd; uid=root;password=root");
 
         private void textBox18_TextChanged(object sender, EventArgs e)
         {

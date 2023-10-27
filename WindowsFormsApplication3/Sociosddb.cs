@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
 
         private void textBox18_TextChanged(object sender, EventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select `NroSocio`, `NroDocumento`, sociosddb.Nombre, `Direccion`, `Localidad`, `CodPostal`, `Provincia`, `TelFijo`, `Celular`, `Responsable` as 'Socio Responsable', `Autorizado1`, `Autorizado2`, `Autorizado3`, `Categorias`, `CuotasImpagas`, `Suspendido`, `FechaFinSusp`, `FechaNac`, `Nacionalidad`, sociosddb.idCobrador, `LugardeCobro`, `FechaAlta`, `Observaciones`, cobrador.Nombre as 'Cobrador' FROM `sociosddb` LEFT OUTER JOIN cobrador on sociosddb.idcobrador = cobrador.idcobrador where  sociosddb.nombre LIKE '%" + textBox18.Text + "%'", cnn);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
 
         private void Sociosddb_Load(object sender, EventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select `NroSocio`, `NroDocumento`, sociosddb.Nombre, `Direccion`, `Localidad`, `CodPostal`, `Provincia`, `TelFijo`, `Celular`, `Responsable` as 'Socio Responsable', `Autorizado1`, `Autorizado2`, `Autorizado3`, `Categorias`, `CuotasImpagas`, `Suspendido`, `FechaFinSusp`, `FechaNac`, `Nacionalidad`, sociosddb.idCobrador, `LugardeCobro`, `FechaAlta`, `Observaciones`, cobrador.Nombre as 'Cobrador' FROM `sociosddb` LEFT OUTER JOIN cobrador on sociosddb.idcobrador = cobrador.idcobrador where  sociosddb.nombre LIKE '%" + textBox18.Text + "%'", cnn);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -72,7 +72,7 @@ namespace WindowsFormsApplication1
         private void restaurarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root;password=root");
             try
             {
                 int nrosocio = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
@@ -107,7 +107,7 @@ namespace WindowsFormsApplication1
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root;password=root");
             int nrosocio = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
             MySqlCommand cmd2 = new MySqlCommand("delete from sociosddb where nrosocio=" + nrosocio, cnn);
             cnn.Open();

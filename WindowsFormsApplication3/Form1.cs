@@ -23,7 +23,7 @@ namespace WindowsFormsApplication1
         }
         private DataTable cargar() 
         {
-            string connectionstring = "Database=bibliotecabd;Data source=localhost;User ID=root";
+            string connectionstring = "Database=bibliotecabd;Data source=localhost;User ID=root;password=root";
             MySqlConnection conn = new MySqlConnection(connectionstring);
             string consulta = "Select * from usuarios ";
             MySqlDataAdapter data = new MySqlDataAdapter(consulta, conn);
@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
         private void permisos() 
         {
 
-            string connectionstring = "Database=bibliotecabd;Data source=localhost;User ID=root";
+            string connectionstring = "Database=bibliotecabd;Data source=localhost;User ID=root;password=root";
             MySqlConnection conn = new MySqlConnection(connectionstring);
             string query = "SELECT * FROM usuarios WHERE nombre='" + comboBox1.Text + "' and contraseña='" + textBox2.Text + "'";
             MySqlCommand cmd = new MySqlCommand(query, conn);

@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
 
         private void NLPprestamo_Load(object sender, EventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root");
+            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root;password=root");
             MySqlCommand cmd = new MySqlCommand("Select * from parametros", cnn);
             cnn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -49,7 +49,7 @@ namespace WindowsFormsApplication1
         {
             if(!radioButton1.Checked)
                 return;
-            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root");
+            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root;password=root");
             MySqlCommand cmd = new MySqlCommand("update parametros set CLibrosPrestamo=1", cnn);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -60,7 +60,7 @@ namespace WindowsFormsApplication1
         {
             if(!radioButton2.Checked)
                 return;
-            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root");
+            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root;password=root");
             MySqlCommand cmd = new MySqlCommand("update parametros set CLibrosPrestamo=2", cnn);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -71,7 +71,7 @@ namespace WindowsFormsApplication1
         {
             if(!radioButton3.Checked)
                 return;
-            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root");
+            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root;password=root");
             MySqlCommand cmd = new MySqlCommand("update parametros set CLibrosPrestamo=3", cnn);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -82,7 +82,7 @@ namespace WindowsFormsApplication1
         {
             if(!radioButton4.Checked)
                 return;
-            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root");
+            MySqlConnection cnn = new MySqlConnection("Data source=localhost;database=bibliotecabd;user=root;password=root");
             MySqlCommand cmd = new MySqlCommand("update parametros set CLibrosPrestamo=4", cnn);
             cnn.Open();
             cmd.ExecuteNonQuery();

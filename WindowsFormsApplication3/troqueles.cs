@@ -147,5 +147,10 @@ namespace WindowsFormsApplication1
         {
             textBox3.Text = "";
         }
+
+        private void troqueles_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost;user id = root");
+        MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost;user id = root;password=root");
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (Char.IsDigit(e.KeyChar))
@@ -176,7 +176,7 @@ namespace WindowsFormsApplication1
                 MySqlDataReader reader = cmd2.ExecuteReader();
                 if (reader.Read())
                 {
-                    MySqlConnection cnn2 = new MySqlConnection("database=bibliotecabd;data source=localhost;user id = root");
+                    MySqlConnection cnn2 = new MySqlConnection("database=bibliotecabd;data source=localhost;user id = root;password=root");
                     MySqlCommand cmd22 = new MySqlCommand("select * from libro where nroinventario=" + textBox1.Text, cnn2);
                     cnn2.Open();
                     MySqlDataReader reader2 = cmd22.ExecuteReader();

@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+        MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
 
         private void PRestamoporsocio_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,7 @@ namespace WindowsFormsApplication1
             cnn.Close();
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
-            MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select * from socio where NroSocio=" + textBox5.Text, cnn2);
             cnn2.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -105,7 +105,7 @@ namespace WindowsFormsApplication1
             {
                 dataGridView1.Rows.Clear();
                 dataGridView1.Refresh();
-                MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("select * from socio where NroSocio=" + domainUpDown1.Text, cnn2);
                 cnn2.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();

@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
 
         private void notas_Load(object sender, EventArgs e)
         {
-            string conexion = "Database=bibliotecabd;Data source=localhost;User ID=root";
+            string conexion = "Database=bibliotecabd;Data source=localhost;User ID=root;password=root";
             MySqlConnection cnn = new MySqlConnection(conexion);
             cnn.Open();
             string consulta = "select * from usuarios where id_usuario="+Form1.idusuario;
@@ -39,7 +39,7 @@ namespace WindowsFormsApplication1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string conexion = "Database=bibliotecabd;Data source=localhost;User ID=root";
+            string conexion = "Database=bibliotecabd;Data source=localhost;User ID=root;password=root";
             MySqlConnection cnn = new MySqlConnection(conexion);
             string consulta = "update usuarios set Notas='" + textBox1.Text + "' where id_usuario =" + Form1.idusuario;
             MySqlCommand data = new MySqlCommand(consulta, cnn);

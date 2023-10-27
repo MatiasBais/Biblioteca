@@ -16,7 +16,7 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        MySqlConnection l = new MySqlConnection("Server=127.0.0.1;database=bibliotecabd; uid=root;pwd=;;");
+        MySqlConnection l = new MySqlConnection("Server=127.0.0.1;database=bibliotecabd; uid=root;password=root;");
         private void loadd()
         {
             MySqlCommand cmd2 = new MySqlCommand("select * from libro where titulo LIKE '%"+textBox18.Text+"%'", l);
@@ -84,7 +84,7 @@ namespace WindowsFormsApplication1
             AutoCompleteStringCollection DataCollection6 = new AutoCompleteStringCollection();
             addItems4(DataCollection6);
             textBox3.AutoCompleteCustomSource = DataCollection6;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select avg(paginas) as caca from libro", cnn);
             cnn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -103,7 +103,7 @@ namespace WindowsFormsApplication1
         {
 
 
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select materia from libro", cnn);
             cnn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -119,7 +119,7 @@ namespace WindowsFormsApplication1
         {
 
 
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select editorial from libro", cnn);
             cnn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -135,7 +135,7 @@ namespace WindowsFormsApplication1
         {
 
 
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select coleccion from libro", cnn);
             cnn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -171,7 +171,7 @@ namespace WindowsFormsApplication1
             textBox8.Clear();
             textBox9.Clear();
             numericUpDown1.Value = 0;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select avg(paginas) as caca from libro", cnn);
             cnn.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -190,7 +190,7 @@ namespace WindowsFormsApplication1
             
                 if (numericUpDown1.Value == 0)
                 {
-                    MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                    MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                     cnn.Open();
                     String d = dateTimePicker1.Value.Year + "/" + dateTimePicker1.Value.Month + "/" + dateTimePicker1.Value.Day;
                     String s = "INSERT INTO libro (Titulo, Editorial, Autor1, Autor2, Autor3, Materia, Clasificacion, LugardeEdicion, Edicion, Ilust, AnodeEdicion, Ubicacion, Paginas, Medida, Precio, ISBN, Coleccion, DiasdePrestamo, Edad, Color, Estado, Caracter, Observaciones, FechadeIngreso) values ('" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox14.Text + "', '" + textBox15.Text + "', '" + textBox16.Text + "', '" + textBox3.Text + "', '" + comboBox5.SelectedValue + "', '" + textBox4.Text + "', '" + textBox5.Text + "', '" + comboBox6.SelectedValue + "', '" + textBox6.Text + "', '" + textBox7.Text + "', " + Convert.ToInt32(numericUpDown2.TextAlign) + ", '" + textBox8.Text + "', '" + textBox9.Text + "', '" + textBox10.Text + "', '" + textBox11.Text + "', '" + comboBox7.Text + "', " + Convert.ToInt32(numericUpDown3.Text) + ", '" + textBox12.Text + "', '" + comboBox8.Text + "', '" + comboBox9.Text + "', '" + textBox13.Text + "', '" + d + "')";
@@ -201,7 +201,7 @@ namespace WindowsFormsApplication1
                 }
                 else
                 {
-                    MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                    MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                     cnn.Open();
                     String d = dateTimePicker1.Value.Year + "/" + dateTimePicker1.Value.Month + "/" + dateTimePicker1.Value.Day;
                     String s = "INSERT INTO libro (NroInventario, Titulo, Editorial, Autor1, Autor2, Autor3, Materia, Clasificacion, LugardeEdicion, Edicion, Ilust, AnodeEdicion, Ubicacion, Paginas, Medida, Precio, ISBN, Coleccion, DiasdePrestamo, Edad, Color, Estado, Caracter, Observaciones, FechadeIngreso) values ('" + numericUpDown1.Value + "' ,'" + textBox1.Text + "', '" + textBox2.Text + "', '" + textBox14.Text + "', '" + textBox15.Text + "', '" + textBox16.Text +"', '" + textBox3.Text + "', '" + comboBox5.SelectedValue + "', '" + textBox4.Text + "', '" + textBox5.Text + "', '" + comboBox6.SelectedValue + "', '" + textBox6.Text + "', '" + textBox7.Text + "', " + Convert.ToInt32(numericUpDown2.TextAlign) + ", '" + textBox8.Text + "', '" + textBox9.Text + "', '" + textBox10.Text + "', '" + textBox11.Text + "', '" + comboBox7.Text + "', " + Convert.ToInt32(numericUpDown3.Text) + ", '" + textBox12.Text + "', '" + comboBox8.Text + "', '" + comboBox9.Text + "', '" + textBox13.Text + "', '" + d + "')";
@@ -308,7 +308,7 @@ namespace WindowsFormsApplication1
             if (DR == DialogResult.Yes)
             {
                 String d = dateTimePicker1.Value.Year + "/" + dateTimePicker1.Value.Month + "/" + dateTimePicker1.Value.Day;
-                MySqlConnection cnn = new MySqlConnection("server=127.0.0.1;database=bibliotecabd;uid=root;pwd=;");
+                MySqlConnection cnn = new MySqlConnection("server=127.0.0.1;database=bibliotecabd;uid=root;password=root");
                 cnn.Open();
                 string t = "Delete from librosddb where Nroinventario =" + numericUpDown1.Value+";insert into librosddb select * from libro where NroInventario=" + numericUpDown1.Value + ";delete from reservas where NroInventario=" + numericUpDown1.Value + " ;delete from prestamos where NroInventario=" + numericUpDown1.Value + " ;Delete from libro where Nroinventario =" + numericUpDown1.Value;
                 MySqlCommand cmd = new MySqlCommand(t, cnn);
@@ -337,7 +337,7 @@ namespace WindowsFormsApplication1
         {
             
           
-                MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root");
+                MySqlConnection cnn = new MySqlConnection("database=bibliotecabd; data source=localhost; user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("select autor1 from libro union select autor2 from libro union select autor3 from libro", cnn);
                 cnn.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -440,7 +440,10 @@ namespace WindowsFormsApplication1
             b_borrar.Visible = false;
             b_modificar.Visible = false;
         }
-       
-      
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

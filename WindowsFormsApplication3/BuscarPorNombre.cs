@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select `NroSocio`, `NroDocumento`, socio.Nombre, `Direccion`, `Localidad`, `CodPostal`, `Provincia`, `TelFijo`, `Celular`, `Responsable` as 'Socio Responsable', `Autorizado1`, `Autorizado2`, `Autorizado3`, `Categorias`, `CuotasImpagas`, `Suspendido`, `FechaFinSusp`, `FechaNac`, `Nacionalidad`, socio.idCobrador, `LugardeCobro`, `FechaAlta`, `Observaciones`, cobrador.Nombre as 'Cobrador' FROM `socio` LEFT OUTER JOIN cobrador on socio.idcobrador = cobrador.idcobrador where  socio.nombre LIKE '%" + textBox1.Text + "%'", cnn);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -49,7 +49,7 @@ namespace WindowsFormsApplication1
 
         private void BuscarPorNombre_Load(object sender, EventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select `NroSocio`, `NroDocumento`, socio.Nombre, `Direccion`, `Localidad`, `CodPostal`, `Provincia`, `TelFijo`, `Celular`, `Responsable` as 'Socio Responsable', `Autorizado1`, `Autorizado2`, `Autorizado3`, `Categorias`, `CuotasImpagas`, `Suspendido`, `FechaFinSusp`, `FechaNac`, `Nacionalidad`, socio.idCobrador, `LugardeCobro`, `FechaAlta`, `Observaciones`, cobrador.Nombre as 'Cobrador' FROM `socio` LEFT OUTER JOIN cobrador on socio.idcobrador = cobrador.idcobrador where  socio.nombre LIKE '%" + textBox1.Text + "%'", cnn);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();

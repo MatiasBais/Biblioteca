@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
                 tipo = " and tipo='DVD'";
 
             string query = "select * from cddvd where titulo like '%" + textBox1.Text + "%' and Materia LIKE '%"+textBox2.Text+"%' " + tipo;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cnn.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -129,7 +129,7 @@ namespace WindowsFormsApplication1
             string caracter = cb_caracter.Text;
             string observaciones = tb_observaciones.Text;
             string query = "UPDATE `cddvd` SET `Tipo`='"+tipo+"',`Numero`='"+nro+"',`FechadeIngreso`='"+fechaingreso+"',`Clasificacion`='"+clasificacion+"',`Autor`='"+autordirector+"',`Titulo`='"+tipo+"',`Ciudad`='"+ciudad+"',`Editor`='"+editor+"',`Materia`='"+materia+"',`Edicion`='"+edicion+"',`Ilus`='"+ilus+"',`Año`='"+año+"',`Ubicacion`='"+ubicacion+"',`Duracion`='"+duracion+"',`Precio`='"+precio+"',`Coleccion`='"+coleccion+"',`DiasdePrestamo`='"+diasdeprestamo+"',`Estado`='"+estado+"',`Caracter`='"+caracter+"',`Observaciones`='"+observaciones+"' WHERE id= "+id;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cnn.Open();
             cmd.ExecuteNonQuery();
@@ -149,7 +149,7 @@ namespace WindowsFormsApplication1
             {
                 int id = Convert.ToInt32(n_id.Value);
                 string query = "delete from cddvdddb where id="+id+";insert into cddvdddb select * from cddvd where id=" + id + " ; delete from cddvd where id=" + id;
-                MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root");
+                MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand(query, cnn);
                 cnn.Open();
                 cmd.ExecuteNonQuery();
@@ -202,7 +202,7 @@ namespace WindowsFormsApplication1
                 string caracter = cb_caracter.Text;
                 string observaciones = tb_observaciones.Text;
                 string query = "insert into cddvd(`id`, `Tipo`, `Numero`, `FechadeIngreso`, `Clasificacion`, `Autor`, `Titulo`, `Ciudad`, `Editor`, `Materia`, `Edicion`, `Ilus`, `Año`, `Ubicacion`, `Duracion`, `Precio`, `Coleccion`, `DiasdePrestamo`, `Estado`, `Caracter`, `Observaciones`) VALUES ('" + id + "','" + tipo + "','" + nro + "','" + fechaingreso + "','" + clasificacion + "','" + autordirector + "','" + titulo + "','" + ciudad + "','" + editor + "','" + materia + "','" + edicion + "','" + ilus + "','" + año + "','" + ubicacion + "','" + duracion + "','" + precio + "','" + coleccion + "','" + diasdeprestamo + "','" + estado + "','" + caracter + "','" + observaciones + "')";
-                MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root");
+                MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand(query, cnn);
                 cnn.Open();
                 cmd.ExecuteNonQuery();

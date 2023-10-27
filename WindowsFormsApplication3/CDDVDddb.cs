@@ -30,7 +30,7 @@ namespace WindowsFormsApplication1
                 tipo = " and tipo='DVD'";
 
             string query = "select * from cddvdddb where titulo like '%" + textBox1.Text + "%' and Materia LIKE '%" + textBox2.Text + "%' " + tipo;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cnn.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -64,7 +64,7 @@ namespace WindowsFormsApplication1
                 tipo = " and tipo='DVD'";
 
             string query = "select * from cddvdddb where titulo like '%" + textBox1.Text + "%' and Materia LIKE '%" + textBox2.Text + "%' " + tipo;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cnn.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -98,7 +98,7 @@ namespace WindowsFormsApplication1
                 tipo = " and tipo='DVD'";
 
             string query = "select * from cddvdddb where titulo like '%" + textBox1.Text + "%' and Materia LIKE '%" + textBox2.Text + "%' " + tipo;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cnn.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -132,7 +132,7 @@ namespace WindowsFormsApplication1
                 tipo = " and tipo='DVD'";
 
             string query = "select * from cddvdddb where titulo like '%" + textBox1.Text + "%' and Materia LIKE '%" + textBox2.Text + "%' " + tipo;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cnn.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -175,7 +175,7 @@ namespace WindowsFormsApplication1
             
                 int id = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
                 string query2 = "insert into cddvd select * from cddvdddb where id=" + id + " ; delete from cddvdddb where id=" + id;
-                MySqlConnection cnn2 = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root");
+                MySqlConnection cnn2 = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root;password=root");
                 MySqlCommand cmd2 = new MySqlCommand(query2, cnn2);
                 cnn2.Open();
                 cmd2.ExecuteNonQuery();
@@ -189,7 +189,7 @@ namespace WindowsFormsApplication1
                     tipo = " and tipo='DVD'";
 
                 string query = "select * from cddvdddb where titulo like '%" + textBox1.Text + "%' and Materia LIKE '%" + textBox2.Text + "%' " + tipo;
-                MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root");
+                MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand(query, cnn);
                 cnn.Open();
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -218,7 +218,7 @@ namespace WindowsFormsApplication1
         {
             int id = Convert.ToInt32(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[0].Value);
             string query2 = " delete from cddvdddb where id=" + id;
-            MySqlConnection cnn2 = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root");
+            MySqlConnection cnn2 = new MySqlConnection("database=bibliotecabd;data source=localhost;user id=root;password=root");
             MySqlCommand cmd2 = new MySqlCommand(query2, cnn2);
             cnn2.Open();
             cmd2.ExecuteNonQuery();
@@ -232,7 +232,7 @@ namespace WindowsFormsApplication1
                 tipo = " and tipo='DVD'";
 
             string query = "select * from cddvdddb where titulo like '%" + textBox1.Text + "%' and Materia LIKE '%" + textBox2.Text + "%' " + tipo;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cnn.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);

@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection("server=127.0.0.1;database=bibliotecabd;uid=root;pwd=");
+            MySqlConnection cnn = new MySqlConnection("server=127.0.0.1;database=bibliotecabd;uid=root;password=root");
             cnn.Open();
             string f = "select NroInventario, Titulo, Editorial, Autor1, Autor2, Autor3, Ubicacion, clasificacion from libro where NroInventario like '%" + textBox1.Text + "%'";
             MySqlCommand cmd = new MySqlCommand(f, cnn);
@@ -32,7 +32,7 @@ namespace WindowsFormsApplication1
 
         private void LibroporNroinventario_Load(object sender, EventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection("server=127.0.0.1;database=bibliotecabd;uid=root;pwd=");
+            MySqlConnection cnn = new MySqlConnection("server=127.0.0.1;database=bibliotecabd;uid=root;password=root");
             cnn.Open();
             string f = "select NroInventario, Titulo, Editorial, Autor1, Autor2, Autor3, Ubicacion, clasificacion from libro where NroInventario like '%" + textBox1.Text + "%'";
             MySqlCommand cmd = new MySqlCommand(f, cnn);

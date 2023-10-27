@@ -19,7 +19,7 @@ namespace WindowsFormsApplication1
        
         public static int gnrosocio;
 
-        MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+        MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
        
         private void Prestamos_Load(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace WindowsFormsApplication1
             cnn.Close();
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
-            MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select * from socio where NroSocio=" + textBox5.Text, cnn2);
             cnn2.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -123,7 +123,7 @@ namespace WindowsFormsApplication1
                 return;
  
             }
-            MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select * from socio where NroSocio="+domainUpDown1.Text, cnn12);
             cnn12.Open();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -137,7 +137,7 @@ namespace WindowsFormsApplication1
                 }
                 else 
                 {
-                    MySqlConnection cnn13 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                    MySqlConnection cnn13 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                     MySqlCommand cmd2 = new MySqlCommand("select * from prestamos where Devuelto='No' and NroSocio=" + domainUpDown1.Text, cnn13);
                     cnn13.Open();
                     MySqlDataReader reader2 = cmd2.ExecuteReader();
@@ -148,7 +148,7 @@ namespace WindowsFormsApplication1
                     }
                     reader2.Close();
                     cnn13.Close();
-                    MySqlConnection cnn14 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                    MySqlConnection cnn14 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                     MySqlCommand cmd5 = new MySqlCommand("select * from parametros", cnn14);
                     cnn14.Open();
                     MySqlDataReader reader5 = cmd5.ExecuteReader();
@@ -185,7 +185,7 @@ namespace WindowsFormsApplication1
             {
                 dataGridView1.Rows.Clear();
                 dataGridView1.Refresh();
-                MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("select * from socio where NroSocio=" + textBox5.Text, cnn2);
                 cnn2.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -265,7 +265,7 @@ namespace WindowsFormsApplication1
             {
                 dataGridView1.Rows.Clear();
                 dataGridView1.Refresh();
-                MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn2 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("select * from socio where NroSocio=" + domainUpDown1.Text, cnn2);
                 cnn2.Open();
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -348,7 +348,7 @@ namespace WindowsFormsApplication1
         private void cambiarEstadoToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
        
                 string q="";
                 if (Convert.ToBoolean(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value) == true)
@@ -388,7 +388,7 @@ namespace WindowsFormsApplication1
         {
             if (e.ColumnIndex == 4) 
             {
-                MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
 
                 string q = "";
                 if (Convert.ToBoolean(dataGridView1.Rows[dataGridView1.CurrentCell.RowIndex].Cells[4].Value) == true)
@@ -439,7 +439,7 @@ namespace WindowsFormsApplication1
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
        
             cnn12.Open();
             string q;
@@ -482,7 +482,7 @@ namespace WindowsFormsApplication1
         {
             try
             {
-                MySqlConnection cnn133 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn133 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd23 = new MySqlCommand("select idReserva, libro.NroInventario, libro.Titulo, socio.NroSocio, socio.nombre as 'Nombre', socio.Celular from libro, socio, reservas where socio.nrosocio=reservas.nrosocio and libro.nroinventario=reservas.nroinventario and reservas.Estado='En espera' and libro.nroinventario=" + textBox4.Text+" order by fecha asc limit 1", cnn133);
                 cnn133.Open();
                 MySqlDataReader reader33 = cmd23.ExecuteReader();
@@ -527,7 +527,7 @@ namespace WindowsFormsApplication1
             }
             
             
-            MySqlConnection cnn13 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+            MySqlConnection cnn13 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
             MySqlCommand cmd2 = new MySqlCommand("select * from libro where NroInventario="+textBox4.Text, cnn13);
             cnn13.Open();
             MySqlDataReader reader = cmd2.ExecuteReader();
@@ -552,7 +552,7 @@ namespace WindowsFormsApplication1
                 cnn14.Close();
                 if (prestado == "No")
                 {
-                    MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                    MySqlConnection cnn12 = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                     string fecha = dateTimePicker1.Value.Year + "/" + dateTimePicker1.Value.Month + "/" + dateTimePicker1.Value.Day;
                     cnn12.Open();
                     string q;

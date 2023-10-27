@@ -56,7 +56,7 @@ namespace WindowsFormsApplication1
                 if (limit != 0)
                     limitt = "limit " + limit;
 
-                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("SELECT prestamos.nrosocio, nombre, celular, count(prestamos.nrosocio) as Cantidad FROM prestamos, socio where prestamos.nrosocio = socio.nrosocio" + fechas + " group by prestamos.nrosocio order by Cantidad desc " + limitt, cnn);
                 cnn.Open();
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);

@@ -42,7 +42,7 @@ namespace WindowsFormsApplication1
                 if (limit != 0)
                     limitt = "limit " + limit;
 
-                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("SELECT prestamos.nroinventario, titulo, clasificacion, count(prestamos.nroinventario) as Cantidad FROM prestamos, libro where prestamos.nroinventario = libro.nroinventario" + fechas + " group by prestamos.nroinventario order by Cantidad desc " + limitt, cnn);
                 cnn.Open();
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -100,7 +100,7 @@ namespace WindowsFormsApplication1
                 if (limit != 0)
                     limitt = "limit " + limit;
 
-                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("SELECT prestamos.nroinventario, titulo, clasificacion, count(prestamos.nroinventario) as Cantidad FROM prestamos, libro where prestamos.nroinventario = libro.nroinventario" + fechas + " group by prestamos.nroinventario order by Cantidad desc " + limitt, cnn); 
                 cnn.Open();
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -163,7 +163,7 @@ namespace WindowsFormsApplication1
                 if (limit != 0)
                     limitt = "limit " + limit;
 
-                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("SELECT prestamos.nroinventario, titulo, clasificacion, count(prestamos.nroinventario) as Cantidad FROM prestamos, libro where prestamos.nroinventario = libro.nroinventario" + fechas + " group by prestamos.nroinventario order by Cantidad desc " + limitt, cnn);
                 cnn.Open();
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -210,7 +210,7 @@ namespace WindowsFormsApplication1
                 if (limit != 0)
                     limitt = "limit " + limit;
 
-                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("SELECT prestamos.nroinventario, titulo, clasificacion, count(prestamos.nroinventario) as Cantidad FROM prestamos, libro where prestamos.nroinventario = libro.nroinventario" + fechas + " group by prestamos.nroinventario order by Cantidad desc " + limitt, cnn); 
                 cnn.Open();
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
@@ -257,7 +257,7 @@ namespace WindowsFormsApplication1
                 if (limit != 0)
                     limitt = "limit " + limit;
 
-                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost;database=bibliotecabd;user id=root;password=root");
                 MySqlCommand cmd = new MySqlCommand("SELECT prestamos.nroinventario, titulo, clasificacion, count(prestamos.nroinventario) as Cantidad FROM prestamos, libro where prestamos.nroinventario = libro.nroinventario" + fechas + " group by prestamos.nroinventario order by Cantidad desc " + limitt, cnn);
                 cnn.Open();
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);

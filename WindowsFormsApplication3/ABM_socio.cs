@@ -26,7 +26,7 @@ namespace WindowsFormsApplication1
         }
         private DataTable cargarcobradores() 
         {
-            string connectionstring = "Database=bibliotecabd;Data source=localhost;User ID=root";
+            string connectionstring = "Database=bibliotecabd;Data source=localhost;User ID=root;password=root";
             using (MySqlConnection conn = new MySqlConnection(connectionstring))
             {
 
@@ -74,7 +74,7 @@ namespace WindowsFormsApplication1
         }
         private void cargardatos() 
         {
-            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root");
+            MySqlConnection cnn = new MySqlConnection("data source = localhost; database=bibliotecabd; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select `NroSocio`, `NroDocumento`, socio.Nombre, `Direccion`, `Localidad`, `CodPostal`, `Provincia`, `TelFijo`, `Celular`, `Responsable` as 'Socio Responsable', `Autorizado1`, `Autorizado2`, `Autorizado3`, `Categorias`, `CuotasImpagas`, `Suspendido`, `FechaFinSusp`, `FechaNac`, `Nacionalidad`, socio.idCobrador, `LugardeCobro`, `FechaAlta`, `Observaciones`, cobrador.Nombre as 'Cobrador' FROM `socio` LEFT OUTER JOIN cobrador on socio.idcobrador = cobrador.idcobrador where  socio.nombre LIKE '%"+textBox2.Text + "%'", cnn);
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -98,7 +98,7 @@ namespace WindowsFormsApplication1
             if (checkBox1.Checked == true)
             {
                 c_resp.Enabled = true;
-                string connectionstring = "Database=bibliotecabd;Data source=localhost;User ID=root";
+                string connectionstring = "Database=bibliotecabd;Data source=localhost;User ID=root;password=root";
                 MySqlConnection conn = new MySqlConnection(connectionstring);
                 string query = "SELECT * FROM socio order by Nombre";
                 MySqlDataAdapter cmd = new MySqlDataAdapter(query, conn);
@@ -209,7 +209,7 @@ namespace WindowsFormsApplication1
                     String alta = dateTimePicker2.Value.Year + "/" + dateTimePicker2.Value.Month + "/" + dateTimePicker2.Value.Day;
                     if (checkBox1.Checked == false)
                     {
-                        MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                        MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                         cnn.Open();
                         String s = "insert into socio (NroSocio, NroDocumento, Nombre, Direccion, Localidad, CodPostal, Provincia, TelFijo, Celular, Autorizado1, Autorizado2, Autorizado3, Categorias, CuotasImpagas, Suspendido, FechaNac, Nacionalidad, idCobrador, LugardeCobro, FechaAlta, Observaciones) Value ('" + numericUpDown2.Value + "', '" + t_dni.Text + "', '" + t_nombre.Text + "', '" + t_dir.Text + "', '" + t_localidad.Text + "', '" + t_cposta.Text + "', '" + t_prov.Text + "', '" + t_tel.Text + "', '" + t_cel.Text + "', '" + t_aut1.Text + "', '" + t_aut2.Text + "', '" + t_aut3.Text + "', '" + comboBox3.Text + "', '" + n_cuotasimpa.Value + "', 'No','" + nacimiento + "', '" + t_nac.Text + "', '" + c_cobrador.SelectedValue + "','" + t_lugardcobro.Text + "', '" + alta + "','" + textBox1.Text + "')";
                         MySqlCommand cmd = new MySqlCommand(s, cnn);
@@ -220,7 +220,7 @@ namespace WindowsFormsApplication1
                     }
                     else
                     {
-                        MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                        MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                         cnn.Open();
                         String s = "insert into socio (NroSocio, NroDocumento, Nombre, Direccion, Localidad, CodPostal, Provincia, TelFijo, Celular, Autorizado1, Autorizado2, Autorizado3, Categorias, CuotasImpagas, Suspendido, FechaNac, Nacionalidad, idCobrador, LugardeCobro, FechaAlta, Observaciones, Responsable) Value ('" + numericUpDown2.Value + "', '" + t_dni.Text + "', '" + t_nombre.Text + "', '" + t_dir.Text + "', '" + t_localidad.Text + "', '" + t_cposta.Text + "', '" + t_prov.Text + "', '" + t_tel.Text + "', '" + t_cel.Text + "', '" + t_aut1.Text + "', '" + t_aut2.Text + "', '" + t_aut3.Text + "', '" + comboBox3.Text + "', '" + n_cuotasimpa.Value + "', 'No','" + nacimiento + "', '" + t_nac.Text + "', '" + c_cobrador.SelectedValue + "','" + t_lugardcobro.Text + "', '" + alta + "','" + textBox1.Text + "'," + c_resp.SelectedValue + ")";
                         MySqlCommand cmd = new MySqlCommand(s, cnn);
@@ -236,7 +236,7 @@ namespace WindowsFormsApplication1
                     String alta = dateTimePicker2.Value.Year + "/" + dateTimePicker2.Value.Month + "/" + dateTimePicker2.Value.Day;
                     if (checkBox1.Checked == false)
                     {
-                        MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                        MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                         cnn.Open();
                         String s = "insert into socio (NroDocumento, Nombre, Direccion, Localidad, CodPostal, Provincia, TelFijo, Celular, Autorizado1, Autorizado2, Autorizado3, Categorias, CuotasImpagas, Suspendido, FechaNac, Nacionalidad, idCobrador, LugardeCobro, FechaAlta, Observaciones) Value ('" + t_dni.Text + "', '" + t_nombre.Text + "', '" + t_dir.Text + "', '" + t_localidad.Text + "', '" + t_cposta.Text + "', '" + t_prov.Text + "', '" + t_tel.Text + "', '" + t_cel.Text + "', '" + t_aut1.Text + "', '" + t_aut2.Text + "', '" + t_aut3.Text + "', '" + comboBox3.Text + "', '" + n_cuotasimpa.Value + "', 'No','" + nacimiento + "', '" + t_nac.Text + "', '" + c_cobrador.SelectedValue + "','" + t_lugardcobro.Text + "', '" + alta + "','" + textBox1.Text + "')";
                         MySqlCommand cmd = new MySqlCommand(s, cnn);
@@ -247,7 +247,7 @@ namespace WindowsFormsApplication1
                     }
                     else
                     {
-                        MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                        MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                         cnn.Open();
                         String s = "insert into socio (NroDocumento, Nombre, Direccion, Localidad, CodPostal, Provincia, TelFijo, Celular, Autorizado1, Autorizado2, Autorizado3, Categorias, CuotasImpagas, Suspendido, FechaNac, Nacionalidad, idCobrador, LugardeCobro, FechaAlta, Observaciones, Responsable) Value ('" + t_dni.Text + "', '" + t_nombre.Text + "', '" + t_dir.Text + "', '" + t_localidad.Text + "', '" + t_cposta.Text + "', '" + t_prov.Text + "', '" + t_tel.Text + "', '" + t_cel.Text + "', '" + t_aut1.Text + "', '" + t_aut2.Text + "', '" + t_aut3.Text + "', '" + comboBox3.Text + "', '" + n_cuotasimpa.Value + "', 'No','" + nacimiento + "', '" + t_nac.Text + "', '" + c_cobrador.SelectedValue + "','" + t_lugardcobro.Text + "', '" + alta + "','" + textBox1.Text + "'," + c_resp.SelectedValue + ")";
                         MySqlCommand cmd = new MySqlCommand(s, cnn);
@@ -276,7 +276,7 @@ namespace WindowsFormsApplication1
             {
                 String nacimiento = d_nac.Value.Year + "/" + d_nac.Value.Month + "/" + d_nac.Value.Day;
                 String alta = dateTimePicker2.Value.Year + "/" + dateTimePicker2.Value.Month + "/" + dateTimePicker2.Value.Day;
-                MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                 cnn.Open();
                 String s = "UPDATE socio SET Responsable ='', NroDocumento='" + t_dni.Text + "', Nombre='" + t_nombre.Text + "', Direccion= '" + t_dir.Text + "', Localidad='" + t_localidad.Text + "', CodPostal= '" + t_cposta.Text + "', Provincia= '" + t_prov.Text + "', TelFijo= '" + t_tel.Text + "', Celular= '" + t_cel.Text + "', Autorizado1= '" + t_aut1.Text + "', Autorizado2= '" + t_aut2.Text + "', Autorizado3= '" + t_aut3.Text + "', Categorias= '" + comboBox3.Text + "', CuotasImpagas= '" + n_cuotasimpa.Value + "', FechaNac= '" + nacimiento + "', Nacionalidad= '" + t_nac.Text + "', idCobrador= '" + c_cobrador.SelectedValue + "', LugardeCobro= '" + t_lugardcobro.Text + "', FechaAlta= '" + alta + "', Observaciones= '" + textBox1.Text + "' where NroSocio = " + numericUpDown2.Value;
                 MySqlCommand cmd = new MySqlCommand(s, cnn);
@@ -289,7 +289,7 @@ namespace WindowsFormsApplication1
             {
                 String nacimiento = d_nac.Value.Year + "/" + d_nac.Value.Month + "/" + d_nac.Value.Day;
                 String alta = dateTimePicker2.Value.Year + "/" + dateTimePicker2.Value.Month + "/" + dateTimePicker2.Value.Day;
-                MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                 cnn.Open();
                 String s = "UPDATE socio SET  Responsable ='" + c_resp.SelectedValue + "', NroDocumento='" + t_dni.Text + "', Nombre='" + t_nombre.Text + "', Direccion= '" + t_dir.Text + "', Localidad='" + t_localidad.Text + "', CodPostal= '" + t_cposta.Text + "', Provincia= '" + t_prov.Text + "', TelFijo= '" + t_tel.Text + "', Celular= '" + t_cel.Text + "', Autorizado1= '" + t_aut1.Text + "', Autorizado2= '" + t_aut2.Text + "', Autorizado3= '" + t_aut3.Text + "', Categorias= '" + comboBox3.Text + "', CuotasImpagas= '" + n_cuotasimpa.Value + "', FechaNac= '" + nacimiento + "', Nacionalidad= '" + t_nac.Text + "', idCobrador= '" + c_cobrador.SelectedValue + "', LugardeCobro= '" + t_lugardcobro.Text + "', FechaAlta= '" + alta + "', Observaciones= '" + textBox1.Text + "' where NroSocio = " + numericUpDown2.Value;
                 MySqlCommand cmd = new MySqlCommand(s, cnn);
@@ -355,7 +355,7 @@ namespace WindowsFormsApplication1
             DialogResult DR = MessageBox.Show("¿Desea dar de baja el socio?", " ", MessageBoxButtons.YesNo);
             if (DR == DialogResult.Yes)
             {
-                MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root");
+                MySqlConnection cnn = new MySqlConnection("data source=localhost; database=bibliotecabd; user id=root;password=root");
                 cnn.Open();
                 String s = "delete from sociosddb where nrosocio="+numericUpDown2.Value+";insert into sociosddb select * from socio where NroSocio=" + numericUpDown2.Value + ";delete from reservas where NroSocio=" + numericUpDown2.Value + "; delete from prestamos where NroSocio=" + numericUpDown2.Value + " ;delete from socio where NroSocio =" + numericUpDown2.Value;
                 MySqlCommand cmd = new MySqlCommand(s, cnn);

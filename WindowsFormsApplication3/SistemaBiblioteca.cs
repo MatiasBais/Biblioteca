@@ -52,7 +52,7 @@ namespace WindowsFormsApplication1
         {
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source= localhost; user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source= localhost; user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand("select libro.NroInventario, libro.Titulo, socio.NroSocio, socio.nombre as 'Nombre', socio.Celular, prestamos.FechaPrestacion, libro.DiasdePrestamo, (curdate()-prestamos.FechaPrestacion) as dias from libro, socio, prestamos where prestamos.FechaPrestacion <= DATE_SUB(CURDATE(), INTERVAL 10 day) and socio.nrosocio=prestamos.nrosocio and libro.nroinventario=prestamos.nroinventario and Devuelto='No' ", cnn);
             cnn.Open();
             MySqlDataReader adp = cmd.ExecuteReader();
@@ -105,7 +105,7 @@ namespace WindowsFormsApplication1
             {
                 dataGridView2.Rows.Clear();
                 dataGridView2.Refresh();
-                MySqlConnection cnn2 = new MySqlConnection("database=bibliotecabd;data source= localhost; user id=root");
+                MySqlConnection cnn2 = new MySqlConnection("database=bibliotecabd;data source= localhost; user id=root;password=root");
                 MySqlCommand cmd2 = new MySqlCommand("select idreserva, libro.NroInventario, libro.Titulo, socio.NroSocio, socio.nombre as 'Nombre', socio.Celular from libro, socio, reservas where socio.nrosocio=reservas.nrosocio and libro.nroinventario=reservas.nroinventario and reservas.Estado='En espera'", cnn2);
                 cnn2.Open();
                 MySqlDataReader adp2 = cmd2.ExecuteReader();
@@ -117,7 +117,7 @@ namespace WindowsFormsApplication1
                     string socionro = adp2["nrosocio"].ToString();
                     string socionombre = adp2["nombre"].ToString();
                     string celular = adp2["celular"].ToString();
-                    MySqlConnection cnn3 = new MySqlConnection("database=bibliotecabd;data source= localhost; user id=root");
+                    MySqlConnection cnn3 = new MySqlConnection("database=bibliotecabd;data source= localhost; user id=root;password=root");
                     MySqlCommand cmd3 = new MySqlCommand("select * from prestamos where NroInventario="+ libronro+" order by fechaprestacion desc", cnn3);
                     cnn3.Open();
                     MySqlDataReader reader2 = cmd3.ExecuteReader();
@@ -382,7 +382,7 @@ namespace WindowsFormsApplication1
         {
             //Image newImage = Image.FromFile(@"C:\Users\Septimo.Septimo-PC\Pictures\2017-11-11\001.jpg");
             //e.Graphics.DrawImage(newImage, 0,0);
-            MySqlConnection cnn = new MySqlConnection("data source= localhost; database=bibliotecabd;user id = root");
+            MySqlConnection cnn = new MySqlConnection("data source= localhost; database=bibliotecabd;user id = root;password=root");
             int i = 0;
             cnn.Open();
             MySqlCommand cmd = new MySqlCommand("select NroSocio, nombre, direccion, lugardecobro from socio where (NroSocio=" + socio1 + " or NroSocio=" + socio2 + ")", cnn);
@@ -494,7 +494,7 @@ namespace WindowsFormsApplication1
                 if (pdi.ShowDialog() == DialogResult.OK)
                 {
                     
-                        MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost; user id=root");
+                        MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost; user id=root;password=root");
                         MySqlCommand cmd = new MySqlCommand("select * from libro where nroinventario>=" + nroinventario + " and nroinventario<=" + nroinventario2, cnn);
                         cnn.Open();
                         MySqlDataReader reader = cmd.ExecuteReader();
@@ -522,7 +522,7 @@ namespace WindowsFormsApplication1
         private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
 
-                MySqlConnection cnn = new MySqlConnection("data source= localhost; database=bibliotecabd;user id = root");
+                MySqlConnection cnn = new MySqlConnection("data source= localhost; database=bibliotecabd;user id = root;password=root");
                 cnn.Open();
                 int nro = inventarios.Pop();
                 MySqlCommand cmd = new MySqlCommand("select * from libro where NroInventario =" +nro, cnn);
@@ -802,7 +802,7 @@ namespace WindowsFormsApplication1
             {
                 try
                 {
-                    MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost; user id=root");
+                    MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source=localhost; user id=root;password=root");
                     MySqlCommand cmd = new MySqlCommand("select * from libro where nroinventario>=" + nroinventario3 + " and nroinventario<=" + nroinventario4+" order by NroInventario desc", cnn);
                     cnn.Open();
                     MySqlDataReader reader = cmd.ExecuteReader();

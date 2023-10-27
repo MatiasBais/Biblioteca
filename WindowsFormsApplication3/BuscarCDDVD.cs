@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
                 tipo = " and tipo='DVD'";
 
             string query = "select * from cddvd where titulo like '%" + textBox1.Text + "%' and Materia LIKE '%" + textBox2.Text + "%' " + tipo;
-            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root");
+            MySqlConnection cnn = new MySqlConnection("database=bibliotecabd;data source = localhost;user id=root;password=root");
             MySqlCommand cmd = new MySqlCommand(query, cnn);
             cnn.Open();
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
